@@ -36,7 +36,7 @@
     if (t) { goTo(parseInt(t.getAttribute('data-goto'), 10)); }
   });
 
-  /* ---------- 滑动翻页（移动端） ---------- */
+  /* ---------- 滑动翻页（移动端优化版） ---------- */
   let sy = null, sx = null, moved = 0, swiping = false;
   const vp = document.querySelector('.viewport');
   vp.addEventListener('touchstart', (e) => {
@@ -51,8 +51,26 @@
     const dy = sy - e.changedTouches[0].clientY;
     const dx = sx - e.changedTouches[0].clientX;
     swiping = false;
-    if (moved > 50) { sy = null; return; }            // 视为内容滚动
-    if (Math.abs(dy) < 55 || Math.abs(dx) > Math.abs(dy)) { sy = null; return; }
+    
+    // 1. 如果横向滑动更多（比如在轮播图里滑），不翻页
+    if (Math.abs(dx) > Math.abs(dy)) { sy = null; return; }
+    
+    // 2. 如果纵向滑动距离太小（小于55px），不翻页
+    if (Math.abs(dy) < 55) { sy = null; return; }
+    
+    // 3. 判断当前页面里内容是否还需要滚动
+    const scrollContent = e.target.closest('.content');
+    if (scrollContent && scrollContent.scrollHeight > scrollContent.clientHeight) {
+      const isAtTop = scrollContent.scrollTop <= 2;
+      const isAtBottom = scrollContent.scrollTop + scrollContent.clientHeight >= scrollContent.scrollHeight - 2;
+      
+      // 往上滑（看下一页），但内容还没滚到底，就不翻页
+      if (dy > 0 && !isAtBottom) { sy = null; return; }
+      // 往下滑（看上一页），但内容还没滚到顶，就不翻页
+      if (dy < 0 && !isAtTop) { sy = null; return; }
+    }
+    
+    // 4. 满足所有条件，触发翻页
     goTo(cur + (dy > 0 ? 1 : -1));
     sy = null;
   }, { passive: true });
