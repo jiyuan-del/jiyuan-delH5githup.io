@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>云游橘洲・遇见星城长沙 | 长沙橘子洲文旅宣传 H5</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="phone">
+  <!-- 顶部工具栏：音轨开关 + 页码 -->
+  <div class="topbar">
+    <button class="sound-btn" id="soundBtn" aria-label="背景音乐">🔈 国风音乐</button>
+    <div class="page-ind" id="pageInd">01 / 10</div>
+  </div>
+
+  <!-- 右侧进度圆点 -->
+  <nav class="dots" id="dots"></nav>
+
+  <!-- 翻页容器 -->
+  <div class="viewport">
+    <div class="pager" id="pager">
+
+      <!-- Page 1 欢迎页 -->
+      <section class="page page-welcome" data-page="0">
+        <div class="bg-img" style="background-image:url('images/hero.jpg')"></div>
+        <div class="overlay overlay-blue"></div>
+        <div class="welcome-inner">
+          <div class="seal-tag">星城 · 橘洲</div>
+          <h1 class="welcome-title">云游橘洲</h1>
+          <p class="welcome-sub">长沙橘子洲头文旅宣传 H5</p>
+          <p class="welcome-mini">红色文化 · 湘江风光 · 城市烟火</p>
+          <button class="btn-primary" data-goto="1">点击开启橘洲之旅</button>
+        </div>
+        <div class="scroll-hint">向上滑动 开启旅程 ↓</div>
+      </section>
+
+      <!-- Page 2 目录导览 -->
+      <section class="page page-map" data-page="1">
+        <div class="bg-water"></div>
+        <div class="page-head">
+          <h2>橘洲导览地图</h2>
+          <p>选择一个点位，开启你的线上漫游</p>
+        </div>
+        <div class="map-wrap">
+          <svg class="isle-map" viewBox="0 0 300 420" aria-hidden="true">
+            <defs>
+              <linearGradient id="isleGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#bfe3c8"/><stop offset="1" stop-color="#8fcfa6"/>
+              </linearGradient>
+            </defs>
+            <path d="M150 6 C104 62 96 150 126 222 C150 292 120 352 150 414 C180 352 150 292 174 222 C204 150 196 62 150 6 Z"
+                  fill="url(#isleGrad)" stroke="#5aa67c" stroke-width="2"/>
+            <circle cx="150" cy="110" r="4" fill="#3f7e5a"/>
+            <circle cx="150" cy="235" r="4" fill="#3f7e5a"/>
+            <circle cx="150" cy="330" r="4" fill="#3f7e5a"/>
+          </svg>
+          <button class="pin pin-1" style="top:24%" data-goto="2">
+            <span class="pin-dot"></span><span class="pin-label">青年毛泽东雕像</span>
+          </button>
+          <button class="pin pin-2" style="top:50%" data-goto="3">
+            <span class="pin-dot"></span><span class="pin-label">湘江橘洲风光</span>
+          </button>
+          <button class="pin pin-3" style="top:74%" data-goto="5">
+            <span class="pin-dot"></span><span class="pin-label">长沙美食攻略</span>
+          </button>
+        </div>
+        <button class="btn-line" data-goto="4">查看全部路线</button>
+      </section>
+
+      <!-- Page 3 红色文化 -->
+      <section class="page page-red" data-page="2">
+        <div class="bg-img" style="background-image:url('images/mao.jpg')"></div>
+        <div class="overlay overlay-warm"></div>
+        <div class="content">
+          <h2 class="title-light">红色印记 · 橘子洲头</h2>
+          <p class="body-light">“独立寒秋，湘江北去，橘子洲头。” 橘子洲是湘江中央的一座长岛，青年毛泽东曾在这里思考国家前途，抒发理想与抱负。如今，青年毛泽东艺术雕塑已成为长沙最具代表性的红色地标。</p>
+          <button class="btn-ghost" id="openPoem">点击赏读《沁园春 · 长沙》</button>
+          <button class="btn-primary" data-goto="3">下一站 · 湘江风光</button>
+        </div>
+      </section>
+
+      <!-- Page 4 自然风光 -->
+      <section class="page page-nature" data-page="3">
+        <div class="content">
+          <h2>湘江长岛 · 橘洲风光</h2>
+          <p class="body">橘子洲四面环水，像一颗绿色明珠镶嵌在湘江中央。这里既有开阔的江景，也有洲头步道、花海、树荫和晚风。春天可观花，夏日可纳凉，秋天可看江景，冬日也别有一番意境。</p>
+          <div class="tags">
+            <span>湘江晚风</span><span>橘洲花海</span><span>江景步道</span><span>城市日落</span>
+          </div>
+          <div class="carousel" id="carousel">
+            <div class="carousel-track" id="carTrack">
+              <div class="slide"><img src="images/river.jpg" alt="湘江江景"/></div>
+              <div class="slide"><img src="images/green.jpg" alt="橘洲绿植"/></div>
+              <div class="slide"><img src="images/sky4.jpg" alt="湘江城市天际线"/></div>
+            </div>
+            <button class="car-arrow car-prev" id="carPrev">‹</button>
+            <button class="car-arrow car-next" id="carNext">›</button>
+            <div class="car-dots" id="carDots"></div>
+          </div>
+          <button class="btn-primary" data-goto="4">下一站 · 游览路线</button>
+        </div>
+      </section>
+
+      <!-- Page 5 路线时间轴 -->
+      <section class="page page-route" data-page="4">
+        <div class="content">
+          <h2>橘洲半日游路线</h2>
+          <ul class="timeline" id="timeline">
+            <li data-desc="乘坐地铁2号线，在橘子洲站下车即达园区入口。"><i>1</i><b>地铁到达橘子洲站</b></li>
+            <li data-desc="步行至洲头，瞻仰青年毛泽东艺术雕塑，感受红色地标。"><i>2</i><b>步行至青年毛泽东雕像</b></li>
+            <li data-desc="沿湘江步道慢行，江风拂面，四季皆景。"><i>3</i><b>沿橘洲江景步道散步</b></li>
+            <li data-desc="远眺两岸高楼与城市天际线，看湘江穿城而过。"><i>4</i><b>观赏湘江风光与城市天际线</b></li>
+            <li data-desc="春季花海、夏日树荫，是拍照与休憩的好去处。"><i>5</i><b>打卡橘洲花海与树荫步道</b></li>
+            <li data-desc="傍晚时分，江面余晖与落日同框，为旅程收尾。"><i>6</i><b>傍晚看湘江日落</b></li>
+          </ul>
+          <div class="tip-box" id="routeTip">小贴士：橘子洲园区较大，建议穿舒适的鞋子。时间紧张可以选择观光小火车，重点游览青年毛泽东雕像和橘洲江景。</div>
+          <button class="btn-primary" data-goto="5">下一站 · 长沙美食</button>
+        </div>
+      </section>
+
+      <!-- Page 6 美食攻略 -->
+      <section class="page page-food" data-page="5">
+        <div class="content">
+          <h2>逛完橘洲 · 吃点长沙味道</h2>
+          <p class="body">长沙不只有湘江和橘洲，还有浓厚的烟火气。逛完橘子洲，可以顺路品尝长沙特色小吃，感受地道湖湘味道。</p>
+          <div class="food-grid" id="foodGrid">
+            <div class="food-card" data-name="臭豆腐" data-desc="外酥里嫩，香辣入味，是长沙街头最具代表性的味道。">
+              <img src="images/choudoufu.jpg" alt="臭豆腐"/><h3>臭豆腐</h3><p>外酥里嫩，香辣入味</p></div>
+            <div class="food-card" data-name="糖油粑粑" data-desc="糯米制成，裹上糖油，软糯香甜，口感细腻。">
+              <img src="images/tangyou.jpg" alt="糖油粑粑"/><h3>糖油粑粑</h3><p>软糯香甜，口感细腻</p></div>
+            <div class="food-card" data-name="长沙米粉" data-desc="汤底浓郁，码料丰富，一碗下肚浑身舒坦。">
+              <img src="images/mifen.jpg" alt="长沙米粉"/><h3>长沙米粉</h3><p>汤底浓郁，码料丰富</p></div>
+            <div class="food-card" data-name="紫苏桃子姜" data-desc="紫苏、桃子与姜同腌，酸甜清爽，最适合夏天。">
+              <img src="images/zisu.jpg" alt="紫苏桃子姜（紫苏实拍）"/><h3>紫苏桃子姜</h3><p>酸甜清爽，适合夏天</p></div>
+          </div>
+          <button class="btn-primary" data-goto="6">下一站 · 游玩贴士</button>
+        </div>
+      </section>
+
+      <!-- Page 7 游玩贴士 -->
+      <section class="page page-tips" data-page="6">
+        <div class="content">
+          <h2>橘洲游玩小贴士</h2>
+          <p class="body">第一次去橘子洲，可以提前做好行程规划，避免走太多路。以下是几个实用建议。</p>
+          <div class="tips-grid" id="tipsGrid">
+            <div class="tip-card"><span class="tip-ico">🚇</span><b>交通</b><p>建议地铁2号线直达橘子洲站</p></div>
+            <div class="tip-card"><span class="tip-ico">🕒</span><b>时间</b><p>下午到傍晚游览舒适度较高</p></div>
+            <div class="tip-card"><span class="tip-ico">🚂</span><b>工具</b><p>园区较大，可选择观光小火车</p></div>
+            <div class="tip-card"><span class="tip-ico">📸</span><b>拍照</b><p>雕像、江边步道、花海都很出片</p></div>
+            <div class="tip-card"><span class="tip-ico">🌞</span><b>防晒</b><p>夏天注意防晒和补水</p></div>
+            <div class="tip-card"><span class="tip-ico">📝</span><b>建议</b><p>预留 2—3 小时游览时间</p></div>
+          </div>
+          <button class="btn-primary" data-goto="7">前往打卡集章</button>
+        </div>
+      </section>
+
+      <!-- Page 8 集章 -->
+      <section class="page page-stamp" data-page="7">
+        <div class="content">
+          <h2>橘洲打卡集章</h2>
+          <p class="body">完成线上游览，收集属于你的橘洲纪念印章。</p>
+          <div class="stamps" id="stamps">
+            <div class="stamp" data-key="red"><div class="stamp-in">红色<br>文化章</div><span class="stamp-state">点击解锁</span></div>
+            <div class="stamp" data-key="river"><div class="stamp-in">湘江<br>风光章</div><span class="stamp-state">点击解锁</span></div>
+            <div class="stamp" data-key="food"><div class="stamp-in">星城<br>美食章</div><span class="stamp-state">点击解锁</span></div>
+          </div>
+          <button class="btn-primary disabled" id="posterBtn" data-goto="8">生成我的打卡海报</button>
+          <p class="stamp-tip" id="stampTip">集齐三枚印章后即可生成海报</p>
+        </div>
+      </section>
+
+      <!-- Page 9 海报 -->
+      <section class="page page-poster" data-page="8">
+        <div class="poster" id="poster">
+          <div class="poster-bg" style="background-image:url('images/hero.jpg')"></div>
+          <div class="poster-veil"></div>
+          <div class="poster-top">云游橘洲 · 线上打卡</div>
+          <h2 class="poster-title">我已线上打卡橘子洲</h2>
+          <p class="poster-sub">感受红色湖湘，遇见星城长沙</p>
+          <div class="poster-stamps" id="posterStamps"></div>
+          <div class="poster-sign">—— 云游橘洲</div>
+          <div class="poster-date" id="posterDate">2026 年</div>
+          <div class="poster-foot">截图保存，分享到微信</div>
+        </div>
+        <div class="poster-actions">
+          <button class="btn-ghost" id="shareBtn">分享提示</button>
+          <button class="btn-primary" data-goto="0">重新游览</button>
+        </div>
+      </section>
+
+      <!-- Page 10 结束 -->
+      <section class="page page-end" data-page="9">
+        <div class="bg-img" style="background-image:url('images/hero.jpg')"></div>
+        <div class="overlay overlay-blue"></div>
+        <div class="content center">
+          <h2 class="title-light">感谢浏览</h2>
+          <p class="body-light">本 H5 以橘子洲红色文化、湘江风光和长沙城市烟火为核心，通过线上交互方式呈现橘洲之美。希望每一位浏览者都能在轻触屏幕之间，感受到长沙这座城市的红色记忆与湖湘气质。</p>
+          <p class="end-foot">云游橘洲 · 长沙橘子洲文旅宣传 H5　感谢观看</p>
+          <button class="btn-primary" data-goto="0">重新开始</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- 诗词弹窗 -->
+  <div class="modal" id="poemModal">
+    <div class="modal-card">
+      <h3>《沁园春 · 长沙》</h3>
+      <p class="poem">独立寒秋，湘江北去，橘子洲头。<br>看万山红遍，层林尽染；<br>漫江碧透，百舸争流。<br>鹰击长空，鱼翔浅底，<br>万类霜天竞自由。<br>怅寥廓，问苍茫大地，谁主沉浮？</p>
+      <button class="btn-primary" id="closePoem">合上诗篇</button>
+    </div>
+  </div>
+
+  <!-- 美食弹窗 -->
+  <div class="modal" id="foodModal">
+    <div class="modal-card food-modal">
+      <img id="foodModalImg" alt=""/>
+      <h3 id="foodModalName"></h3>
+      <p id="foodModalDesc"></p>
+      <button class="btn-primary" id="closeFood">知道了</button>
+    </div>
+  </div>
+
+  <!-- 分享提示 -->
+  <div class="toast" id="toast">长按或截图保存，即可分享到微信 🌿</div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
